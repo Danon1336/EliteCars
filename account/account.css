@@ -1,0 +1,222 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Sofia Sans Condensed", sans-serif;
+    text-decoration: none;
+}
+body{
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.bolid {
+    position: relative;
+    animation: slideOut 1s forwards;
+}
+
+@keyframes slideOut {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(100vw); }
+}
+
+.container {
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.container.visible {
+    opacity: 1;
+}
+
+.containers {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.container {
+    width: 150px;
+    height: 100px;
+    background-color: #7a7a7a;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 1rem;
+    text-align: center;
+}
+h1, h2 {
+    color: #ffd700;
+}
+.data, .level {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Стили для блока "level" */
+.level {
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    margin: auto;
+}
+.about {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeInUp 1.5s forwards;
+}
+
+.details {
+    width: 30%;
+    background: #444;
+    padding: 10px;
+    border-radius: 8px;
+}
+.details p{
+    font-size: 20pt;
+    color: white;
+}
+.data p{
+    font-size: 18pt;
+    color: white;
+}
+/* Анимация появления */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.containers .container {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+.data {
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+}
+.data h1{
+    font-size: 32pt;
+    color: gold;
+    font-weight: 200;
+    margin-top: 20px;
+
+}
+.data p{
+    font-size: 32pt;
+    color: rgb(255, 255, 255);
+    font-weight: 200;
+    margin-top: 20px;
+}
+.data img {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin-top: 30px
+}
+
+.data img:hover {
+    transform: scale(1.1);
+}
+
+/* Общие стили для popup-menu */
+.popup-menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 10px;
+    opacity: 0;
+    pointer-events: none; /* скрывает меню, пока оно не активно */
+    transition: opacity 0.3s;
+}
+
+.popup-menu.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Стили для каждого элемента popup-item */
+.popup-item {
+    background: #444;
+    color: #ffd700;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.popup-item{
+    width: 200px;
+}
+/* Начальные позиции для выезжающих кнопок */
+.popup-item.left {
+    position: absolute;
+    left: -100%; /* начальное смещение слева */
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+
+}
+
+.popup-item.right {
+    position: absolute;
+    right: -100%; /* начальное смещение справа */
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+}
+
+.popup-item.top {
+    position: absolute;
+    top: 100%; /* начальное смещение сверху */
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 0.3s ease;
+}
+
+/* Когда меню активно, элементы выезжают */
+.popup-menu.visible .popup-item.left {
+    transform: translate(-150%, -50%); /* выезжает слева от аватарки */
+}
+
+.popup-menu.visible .popup-item.right {
+    transform: translate(150%, -50%); /* выезжает справа от аватарки */
+}
+
+.popup-menu.visible .popup-item.top {
+    transform: translate(-50%,-400%); /* выезжает сверху от аватарки */
+}
+
+.popup-item:hover {
+    background: #555;
+}
+.popup-item a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 18pt;
+}
+.doc{
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18pt
+}
+.data{
+    margin-top: 20px;
+    text-align: center;
+    background-color: #555;
+    width: fit-content;
+    padding: 20px;
+    border-radius: 18px;
+}
